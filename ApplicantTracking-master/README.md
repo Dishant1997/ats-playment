@@ -1,74 +1,23 @@
-Applicant Tracking
+Assignment prepared for placement at playment- Applicant Tracking usind video interview format
 =================
-
-Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playback with only
-two lines of code in your site, service or app. 
-
-This is a simple applicant tracking system featuring video interviews. It was originally built by
-Union Square Ventures (http://usv.com).
 
 Technology
 ===========
 
 Built with:
 
- * Python / [Tornado](http://tornadoweb.org)
- * [Mongodb](http://www.mongodb.com/)
- * [Ziggeo](http://ziggeo.com)
- * [Filepicker](http://filepicker.io)
+ * Python / [Tornado](http://tornadoweb.org)-ornado is a scalable, non-blocking web server and web application framework written in            Python. It was developed for use by FriendFeed; the company was acquired by Facebook in 2009 and Tornado was open-sourced soon              after.
+ * [Mongodb](http://www.mongodb.com/)-MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a    NoSQL database program, MongoDB uses JSON-like documents with schemata. MongoDB is developed by MongoDB Inc., and is published under a      combination of the Server Side Public License and the Apache License.
+ * [Ziggeo](http://ziggeo.com)-Ziggeo is a cloud-based video technology SaaS (Software as a Service) company that provides asynchronous        video APIs [1], mobile SDKs and tools to deliver enterprise-grade WebRTC capabilities
+ * heroku-Heroku is a cloud platform as a service supporting several programming languages. Heroku, one of the first cloud platforms, has      been in development since June 2007, when it supported only the Ruby programming language, but now supports Java, Node.js, Scala,          Clojure, Python, PHP, and Go.
+ 
+Process :
+========================================
+*  The complete coding has been done in python 3.4.7
+*  The code is deployed on heroku using github.
+*  We are using ziggeo here which provides us with API's so that candidates can record a video attached with a resume answering some simple    questions mentioned inside. It helps companies to shortlist in a more efiicient way.
 
-Setup
-======
-
-**1. Obtain source code**
-- 1.1 Clone our repository into an empty directory.
-- 1.2 Delete .git directory
-
-**2. Sign up for Heroku**
-
-- 2.1 Go to Heroku and create an account
-- 2.2 Create a Heroku application
-- 2.3 Add a Credit Card
-- 2.4 Add MongoLab Addon
-- 2.5 Install the Heroku Toolbelt
-
-**3. Sign up for Ziggeo**
-
-- 3.1 Go to Ziggeo and create an account.
-
-**4. Configure repository**
-
-- 4.1 In your directory, start with `git init`
-- 4.2 `heroku accounts:add yourappname --auto`
-- 4.3 `heroku git:remote -a yourappname --account yourappname`
-- 4.4 `heroku accounts:set yourappname`
-
-**5. Configure API / service keys**
-
-- 5.1 Open settings.py in an editor
-- 5.2 Change COOKIE_SECRET to something random
-- 5.3 Run `heroku config` to obtain DB_NAME, MONGODB_URL.
-- 5.4 Go to the Ziggeo application to obtain ZIGGEO_TOKEN.
-
-**6. Customize application by editing source code.**
-
-- 6.1 Change the title in settings.py
-- 6.2 Add your administrators to settings.py
-- 6.3 Update questions & videos in settings.py
-- 6.4 Open the template files to change the overall look. (options)
-
-**7. Push to production**
-
-- 7.1 `git add .`
-- 7.2 `git commit -a -m "Initial Commit"`
-- 7.3 `git push heroku master`
-
-Run the application locally
-===========
-
-1. Start a local instance of mongo by running `./mongod` or configure your app to use a cloud-based mongo instance, by setting "MONGODB_URL" and "DB_NAME" in settings.py
-
-2. Start the web server `python tornado_server.py`
-
-3. Visit application by navigating to [http://localhost:8001](http://localhost:8001)
-
+Already existing technology :
+=========================================
+*  Algorithms to search for a correlation between job description and resume keywords to find the best possible fit.
+*  Formatting out the key points from the resume to avoid going through the complete document.
