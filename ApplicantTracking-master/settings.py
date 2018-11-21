@@ -5,8 +5,8 @@ import tornado.options
 
 os.environ['Recruitment'] = os.environ.get("SECRET_TOKEN", "placeholder")
 os.environ['MONGODB_URL'] = os.environ.get("MONGODB_URI", " mongodb://heroku_vg2c9pkg:6unebo2pd8qb9c5ebs1bqpon1b@ds043487.mlab.com:43487/heroku_vg2c9pkg")
-os.environ['DB_NAME'] = urlparse.urlsplit(os.environ['MONGODB_URL']).path.replace("/","")
-os.environ['ZIGGEO_TOKEN'] = urlparse.urlsplit(os.environ.get("ZIGGEO_URL", "https://ziggeo.com/applications/25da8097c3f06ef2182f818b4f2a3eef")).username
+os.environ['DB_NAME'] = urllib.parse.urlsplit(os.environ['MONGODB_URL']).path.replace("/","")
+os.environ['ZIGGEO_TOKEN'] = urllib.parse.urlsplit(os.environ.get("ZIGGEO_URL", "https://ziggeo.com/applications/25da8097c3f06ef2182f818b4f2a3eef")).username
 os.environ['FILE_PICKER_KEY'] = os.environ.get("FILEPICKER_API_KEY", "placeholder")
 os.environ["ADMINS"] = "adminname:adminpassword"
 
