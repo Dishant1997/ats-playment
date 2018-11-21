@@ -1,6 +1,6 @@
 import os
 import time
-import urlparse
+from urllib.parse import urlparse
 import tornado.options
 
 os.environ['Recruitment'] = os.environ.get("SECRET_TOKEN", "placeholder")
