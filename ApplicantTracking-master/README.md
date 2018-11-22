@@ -13,9 +13,13 @@ Built with:
  
 Process :
 ========================================
-*  The complete coding has been done in python 3.4.7
-*  The code is deployed on heroku using github.
-*  We are using ziggeo here which provides us with API's so that candidates can record a video attached with a resume answering some simple    questions mentioned inside. It helps companies to shortlist in a more efiicient way.
+*  Download python tornado with the shell script
+   $ sudo pip install tornado
+*  Upgrade pip version using
+   $ python -m pip install --upgrade pip
+*  Clone or Download all the files from github repository
+*  Start the web server python tornado_server.py
+*  Visit application by navigating to http://localhost:8001
 
 Already existing technology :
 =========================================
