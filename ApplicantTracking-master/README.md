@@ -11,7 +11,7 @@ Built with:
  * [Ziggeo](http://ziggeo.com)-Ziggeo is a cloud-based video technology SaaS (Software as a Service) company that provides asynchronous        video APIs [1], mobile SDKs and tools to deliver enterprise-grade WebRTC capabilities
  * heroku-Heroku is a cloud platform as a service supporting several programming languages. Heroku, one of the first cloud platforms, has      been in development since June 2007, when it supported only the Ruby programming language, but now supports Java, Node.js, Scala,          Clojure, Python, PHP, and Go.
  
-Process :
+Process :(Note: Kindly use UBUNTU otherwise you will get attribute error for tzset)
 ========================================
 *  Download python tornado with the shell script
    $ sudo pip install tornado
