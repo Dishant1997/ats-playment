@@ -7,7 +7,7 @@ from datetime import datetime
 import requests
 
 client = MongoClient('localhost', 27017)
-db = MongoClient('mongodb://playment:abcd1234@ds043487.mlab.com:43487/heroku_vg2c9pkg')
+db = MongoClient('mongodb://apply:abcd1234@ds043487.mlab.com:43487/heroku_vg2c9pkg')
 
 """
 db.apply.submissions
@@ -36,9 +36,9 @@ db.apply.submissions
 
 """
 
-db.apply.submissions.ensure_index('username')
-db.apply.submissions.ensure_index('submitted')
-db.apply.submissions.ensure_index('submission_date')
+db.apply.submissions.createIndex('username')
+db.apply.submissions.createIndex('submitted')
+db.apply.submissions.createIndex('submission_date')
 
 #def get_all(include_drafts = False):
 #    return list(db.apply.submissions.find()) if include_drafts else list(db.apply.submissions.find({"submitted": True}, sort=[('submission_date', pymongo.DESCENDING)])) 
@@ -60,7 +60,7 @@ def get_submissions(kwargs, submitted=True, sort=None):
     if not sort:
         sort = [('submission_date', pymongo.DESCENDING)]
     
-    return list(db.apply.submissions.find(kwargs, sort=sort))
+    return list(db.apply.apply.submissions.find(kwargs, sort=sort))
 
 # Either finds the submission or creates the submission for the user
 def obtain_submission(username):
