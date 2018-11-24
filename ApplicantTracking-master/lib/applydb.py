@@ -4,7 +4,7 @@ import json
 import logging
 from bson.objectid import ObjectId
 from settings import global_data
-
+import db
 from datetime import datetime
 import requests
 
