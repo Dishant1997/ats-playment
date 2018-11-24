@@ -1,5 +1,4 @@
-from db import mongodb
-import pymongo
+import pymongo import MongoClient
 import json
 import logging
 from bson.objectid import ObjectId
@@ -7,6 +6,8 @@ from settings import global_data
 from datetime import datetime
 import requests
 
+client = MongoClient('localhost', 27017)
+db = MongoClient('mongodb://playment:abcd1234@ds043487.mlab.com:43487/heroku_vg2c9pkg')
 
 """
 db.apply.submissions
