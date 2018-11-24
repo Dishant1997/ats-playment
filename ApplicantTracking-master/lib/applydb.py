@@ -1,4 +1,4 @@
-import pymongo import MongoClient
+from pymongo import MongoClient
 import json
 import logging
 from bson.objectid import ObjectId
