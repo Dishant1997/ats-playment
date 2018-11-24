@@ -60,7 +60,7 @@ def get_submissions(kwargs, submitted=True, sort=None):
     if not sort:
         sort = [('submission_date', pymongo.DESCENDING)]
     
-    return list(db.apply.apply.submissions.find(kwargs, sort=sort))
+    return list(db.apply.submissions.find(kwargs, sort=sort))
 
 # Either finds the submission or creates the submission for the user
 def obtain_submission(username):
