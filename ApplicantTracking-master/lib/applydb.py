@@ -8,6 +8,7 @@ import requests
 
 client = MongoClient('localhost', 27017)
 db = MongoClient('mongodb://apply:abcd1234@ds043487.mlab.com:43487/heroku_vg2c9pkg')
+collection = db.test_collection
 
 """
 db.apply.submissions
@@ -36,15 +37,15 @@ db.apply.submissions
 
 """
 
-db.apply.submissions.createIndex('username')
-db.apply.submissions.createIndex('submitted')
-db.apply.submissions.createIndex('submission_date')
+db.collection.createIndex('username')
+db.collection.createIndex('submitted')
+db.collection.createIndex('submission_date')
 
 #def get_all(include_drafts = False):
 #    return list(db.apply.submissions.find()) if include_drafts else list(db.apply.submissions.find({"submitted": True}, sort=[('submission_date', pymongo.DESCENDING)])) 
 
 def get_submission(username):
-    return db.apply.submissions.find_one({"username" : username})
+    return db.collection.find_one({"username" : username})
 
 ''' Assumes only submitted submissions are wanted '''
 def get_submissions(kwargs, submitted=True, sort=None):
@@ -60,7 +61,7 @@ def get_submissions(kwargs, submitted=True, sort=None):
     if not sort:
         sort = [('submission_date', pymongo.DESCENDING)]
     
-    return list(db.apply.submissions.find(kwargs, sort=sort))
+    return list(db.collection.find(kwargs, sort=sort))
 
 # Either finds the submission or creates the submission for the user
 def obtain_submission(username):
@@ -82,11 +83,11 @@ def obtain_submission(username):
     if submission_from_db :
         submission.update(submission_from_db)
         return submission
-    db.apply.submissions.insert(submission);
+    db.collection.insert(submission);
     return submission 
 
 def update_submission(submission, update):
-    db.apply.submissions.update({"username": submission["username"]}, {"$set": update})
+    db.collection.update({"username": submission["username"]}, {"$set": update})
 
 def rate_submission(submission, user, rating):
     submission["ratings"][user] = rating
