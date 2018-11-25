@@ -24,20 +24,20 @@ class Application(tornado.web.Application):
   handlers = [
 
     # apply stuff
-    (r"/", lib.apply.Process),
-    (r"", lib.apply.Process),
-    (r"/apply", lib.apply.Process),
-    (r"/apply/", lib.apply.Process),
-    (r"/apply/admin", lib.apply.AdminList),
-    (r"/apply/admin/api/tags/([^\/]+)", lib.apply.AdminApiTags),
-    (r"/apply/admin/api/rate/([^\/]+)", lib.apply.AdminApiRate),
-    (r"/apply/admin/api/comment/([^\/]+)", lib.apply.AdminApiComment),
+    #(r"/", lib.apply.Process),
+    #(r"", lib.apply.Process),
+    #(r"/apply", lib.apply.Process),
+    #(r"/apply/", lib.apply.Process),
+    #(r"/apply/admin", lib.apply.AdminList),
+    #(r"/apply/admin/api/tags/([^\/]+)", lib.apply.AdminApiTags),
+    #(r"/apply/admin/api/rate/([^\/]+)", lib.apply.AdminApiRate),
+    #(r"/apply/admin/api/comment/([^\/]+)", lib.apply.AdminApiComment),
 
    ]
      
      
      
-    tornado.web.Application.__init__(self, handlers, **app_settings)
+  tornado.web.Application.__init__(self, handlers, **app_settings)
 
 
 def main():
