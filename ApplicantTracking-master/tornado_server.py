@@ -21,12 +21,10 @@ class Application(tornado.web.Application):
       "static_path" : os.path.join(os.path.dirname(__file__), "static"),
       "template_path" : os.path.join(os.path.dirname(__file__), "templates"),
     }
-    mappings = handlers.mappings + [
-        (r"/([^/]+)?", MainHandler)
-    ]
-     
-     
-     
+     mappings = handlers.mappings + [
+         (r"/([^/]+)?", MainHandler)
+     ]
+    
      tornado.web.Application.__init__(self, mappings, **app_settings)
 
 
