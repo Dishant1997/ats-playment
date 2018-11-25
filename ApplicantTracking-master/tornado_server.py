@@ -42,7 +42,7 @@ def main():
   tornado.options.define("port", default=8001, help="Listen on port", type=int)
   tornado.options.parse_command_line()
   logging.info("starting tornado_server on 0.0.0.0:%d" % tornado.options.options.port)
-  http_server = tornado.httpserver.HTTPServer(request_callback=Application(), xheaders=True)
+  http_server = tornado.httpserver.HTTPServer(Application(), xheaders=True)
   http_server.listen(tornado.options.options.port)
   tornado.ioloop.IOLoop.instance().start()
 
