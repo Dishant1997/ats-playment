@@ -21,23 +21,13 @@ class Application(tornado.web.Application):
       "static_path" : os.path.join(os.path.dirname(__file__), "static"),
       "template_path" : os.path.join(os.path.dirname(__file__), "templates"),
     }
-  handlers = [
-
-    # apply stuff
-    #(r"/", lib.apply.Process),
-    #(r"", lib.apply.Process),
-    #(r"/apply", lib.apply.Process),
-    #(r"/apply/", lib.apply.Process),
-    #(r"/apply/admin", lib.apply.AdminList),
-    #(r"/apply/admin/api/tags/([^\/]+)", lib.apply.AdminApiTags),
-    #(r"/apply/admin/api/rate/([^\/]+)", lib.apply.AdminApiRate),
-    #(r"/apply/admin/api/comment/([^\/]+)", lib.apply.AdminApiComment),
-
-   ]
+    mappings = handlers.mappings + [
+        (r"/([^/]+)?", MainHandler)
+    ]
      
      
      
-  tornado.web.Application.__init__(self, handlers, **app_settings)
+   tornado.web.Application.__init__(self, mappings, **app_settings)
 
 
 def main():
