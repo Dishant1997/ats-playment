@@ -23,9 +23,9 @@ class Application(tornado.web.Application):
     }
     mappings = handlers.mappings + [
          (r"/([^/]+)?", MainHandler)
-     ]
+    ]
     
-     tornado.web.Application.__init__(self, mappings, **app_settings)
+    tornado.web.Application.__init__(self, mappings, **app_settings)
 
 
 def main():
