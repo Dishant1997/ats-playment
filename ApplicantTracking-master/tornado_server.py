@@ -22,8 +22,8 @@ class Application(tornado.web.Application):
       "template_path" : os.path.join(os.path.dirname(__file__), "templates"),
     }
 
-   # handlers = [
-
+   handlers = [
+      self.write("Hello, world")
       # apply stuff
       #(r"/", lib.apply.Process),
       #(r"", lib.apply.Process),
@@ -34,7 +34,7 @@ class Application(tornado.web.Application):
       #(r"/apply/admin/api/rate/([^\/]+)", lib.apply.AdminApiRate),
       #(r"/apply/admin/api/comment/([^\/]+)", lib.apply.AdminApiComment),
 
-    # ]
+     ]
      
     tornado.web.Application.__init__(self, handlers, **app_settings)
 
