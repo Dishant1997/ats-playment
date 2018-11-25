@@ -27,7 +27,7 @@ class Application(tornado.web.Application):
      
      
      
-   tornado.web.Application.__init__(self, mappings, **app_settings)
+     tornado.web.Application.__init__(self, mappings, **app_settings)
 
 
 def main():
