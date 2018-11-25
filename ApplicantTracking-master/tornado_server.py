@@ -21,24 +21,20 @@ class Application(tornado.web.Application):
       "static_path" : os.path.join(os.path.dirname(__file__), "static"),
       "template_path" : os.path.join(os.path.dirname(__file__), "templates"),
     }
+  handlers = [
 
-   #handlers = [
-      #self.write("Hello, world"),
-      # apply stuff
-      #(r"/", lib.apply.Process),
-      #(r"", lib.apply.Process),
-      #(r"/apply", lib.apply.Process),
-      #(r"/apply/", lib.apply.Process),
-      #(r"/apply/admin", lib.apply.AdminList),
-      #(r"/apply/admin/api/tags/([^\/]+)", lib.apply.AdminApiTags),
-      #(r"/apply/admin/api/rate/([^\/]+)", lib.apply.AdminApiRate),
-      #(r"/apply/admin/api/comment/([^\/]+)", lib.apply.AdminApiComment),
-     #]
-      handlers = [
+    # apply stuff
+    (r"/", lib.apply.Process),
+    (r"", lib.apply.Process),
+    (r"/apply", lib.apply.Process),
+    (r"/apply/", lib.apply.Process),
+    (r"/apply/admin", lib.apply.AdminList),
+    (r"/apply/admin/api/tags/([^\/]+)", lib.apply.AdminApiTags),
+    (r"/apply/admin/api/rate/([^\/]+)", lib.apply.AdminApiRate),
+    (r"/apply/admin/api/comment/([^\/]+)", lib.apply.AdminApiComment),
+
+   ]
      
-        self.write("Hello, world"),
-
-     ]
      
      
     tornado.web.Application.__init__(self, handlers, **app_settings)
