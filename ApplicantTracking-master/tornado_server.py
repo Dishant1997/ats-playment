@@ -4,7 +4,8 @@ import tornado.httpclient
 import tornado.ioloop
 import tornado.options
 import tornado.web
-
+import time
+import signal
 import logging
 
 import settings 
@@ -36,7 +37,27 @@ class Application(tornado.web.Application):
     ]
     
     tornado.web.Application.__init__(self, handlers, **app_settings)
+def sig_handler(sig, frame):
+    logging.warning('Caught signal: %s', sig)
+    tornado.ioloop.IOLoop.instance().add_callback(shutdown)
+    
+def shutdown():
+    logging.info('Stopping http server')
+    server.stop()
 
+    logging.info('Will shutdown in %s seconds ...', MAX_WAIT_SECONDS_BEFORE_SHUTDOWN)
+    io_loop = tornado.ioloop.IOLoop.instance()
+
+    deadline = time.time() + MAX_WAIT_SECONDS_BEFORE_SHUTDOWN
+
+    def stop_loop():
+        now = time.time()
+        if now < deadline and (io_loop._callbacks or io_loop._timeouts):
+            io_loop.add_timeout(now + 1, stop_loop)
+        else:
+            io_loop.stop()
+            logging.info('Shutdown')
+    stop_loop()    
 
 def main():
   tornado.options.define("port", default=8001, help="Listen on port", type=int)
@@ -44,6 +65,10 @@ def main():
   logging.info("starting tornado_server on 0.0.0.0:%d" % tornado.options.options.port)
   http_server = tornado.httpserver.HTTPServer(Application(), xheaders=True)
   http_server.listen(tornado.options.options.port)
+  
+  signal.signal(signal.SIGTERM, sig_handler)
+  signal.signal(signal.SIGINT, sig_handler)
+  
   tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == "__main__":
