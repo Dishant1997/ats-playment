@@ -55,7 +55,7 @@ class Process(util.SessionHandler):
         for field in global_data["FIELDS"] :
             form[field["name"]] = submission[field["name"]]
         errors = {}
-        self.render('apply/fields.html', form=form, errors=errors, global_data = global_data)
+        self.render_string('apply/fields.html', form=form, errors=errors, global_data = global_data)
     
     def post_fields(self, submission):
         form = {}
