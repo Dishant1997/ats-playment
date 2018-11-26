@@ -82,7 +82,7 @@ except:
   pass
 
   
-#time.tzset()
+time.tzset()
 
 def get(key):
   return os.environ.get(key.upper())
