@@ -1,4 +1,4 @@
-from mongo import db
+from lib.mongo import db
 import pymongo
 import json
 import logging
